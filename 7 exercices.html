@@ -8,21 +8,30 @@
 
         <script type="text/javascript">
             function auDemarrage() {
-                // j'écris la plupart de mon code ici
+            // j'écris la plupart de mon code ici
             }
             // Je m'abonne à l'event 'load' 
             window.addEventListener('load', auDemarrage);
         </script>
 
         <style>
+            .layout {
+                display:flex;
+                flex-direction:row;
+            }
+            /* mieux que "float:left" pour .navigation et .main car permet de changer la taille de la fenêtre du navigateur ;
+            Cela permet en effet d'arriver au point ou les boutons ne sont plus en colonne, commo sur le .png de mise en forme.
+            */
+
             .navigation {
                 background: gainsboro;
                 padding: 10px;
+                padding-bottom: 675px;
             }
          
             .main {
                 background-color: #e6fcff;
-                padding: 10px;
+                padding-left: 0pt;
             }
             
             section.buttons {
@@ -32,7 +41,38 @@
             }
             section.buttons section {
                 margin-bottom: 10px;
+                margin-left: 10px;
             }
+
+            article {
+                border-style: dotted;
+                border-width:2px;
+                border-color: grey;
+                margin: 10px;
+            }
+
+            article h1 {
+                background-color: gainsboro;
+                margin: 0px;
+        
+            }
+
+            footer {
+                margin:10px;
+            }   
+
+            article footer {
+                color: burlywood;
+            }
+
+            article.important {
+                border-color: rgb(0, 119, 255);
+            }
+
+            article.important h1 {
+                background-color: rgb(111, 146, 175);
+            }
+
         </style>
     </head>
 
@@ -60,6 +100,7 @@
                     </p>
                     <footer>Signé <span class="auteur">Stéphane</span></footer>
                 </article>
+            
             </section>
 
             <section class="section-secondaire">
