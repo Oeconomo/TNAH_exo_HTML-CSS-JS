@@ -12,31 +12,34 @@
       
             function auDemarrage() {
                 // j'écris la plupart de mon code ici
-                //1. Afficher les auteurs dans la console"
+                //1. Afficher les auteurs dans la console" : REUSSI
                 let boutonAuteurs = document.querySelector("#boutonAuteurs");
                 function afficherAuteurs() { 
                     let auteurs = document.getElementsByClassName("auteur");
-                    let i = 0
-                    for (let auteur in auteurs) {
-                    console.log(document.getElementsByClassName("auteur")[i]);
-                    i += 1
+                    for (auteur of auteurs) {
+                        console.log(auteur.innerText);
                     }
+
                 };
                 boutonAuteurs.addEventListener('click', afficherAuteurs);
-                //il manque que ce soit que le texte sans html !
 
-                //2. Afficher la liste des lauréats dans la console"            
+                //2. Afficher la liste des lauréats dans la console" : REUSSI    
                 let boutonListeLaureats = document.querySelector('#boutonListeLaureats');
                 function afficherLaureats () {
-                    console.log(document.getElementsByTagName("li"));
+                    let laureats = document.querySelectorAll("ol li");
+                    for (laureat of laureats) {
+                        console.log(laureat.innerText);
+                    }
                 };
                 boutonListeLaureats.addEventListener('click', afficherLaureats);
-
 
                 //3. Afficher les titres des articles dans la console
                 let boutonArticles = document.querySelector('#boutonArticles');
                 function afficherTitresArticles() {
-                    console.log(document.getElementsByTagName("article h1"));
+                    titres = document.querySelectorAll("article header");   //on peut ou pas mettre h1 après header
+                    for (titre of titres) {
+                        console.log(titre.innerText);
+                    }
                 };
                 boutonArticles.addEventListener('click', afficherTitresArticles);
 
