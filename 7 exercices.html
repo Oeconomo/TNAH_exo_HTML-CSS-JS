@@ -6,27 +6,62 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Exercice sur les sélections</title>
 
-        <script type="text/javascript">
-            function auDemarrage() {
-            // j'écris la plupart de mon code ici
-
-            //"1. Afficher les auteurs dans la console"
-            let auteurs = document.getElementsByClassName("auteur");
-            let i = 0
-            for (let auteur in auteurs) {
-                console.log(document.getElementsByClassName("auteur")[i]);
-                i += 1
-
-            }
-            //"2. Afficher la liste des lauréats dans la console"
-
-            //3. Afficher les titres des articles dans la console"
     
 
-            //4. Inverser l'ordre des lauréats dans la page"/>
-            //5. Ajouter un nouvel article à la suite des autres"/>
-            //6. Supprimer le dernier article de la page
+        <script type="text/javascript">
+      
+            function auDemarrage() {
+                // j'écris la plupart de mon code ici
+                //1. Afficher les auteurs dans la console"
+                let boutonAuteurs = document.querySelector("#boutonAuteurs");
+                function afficherAuteurs() { 
+                    let auteurs = document.getElementsByClassName("auteur");
+                    let i = 0
+                    for (let auteur in auteurs) {
+                    console.log(document.getElementsByClassName("auteur")[i]);
+                    i += 1
+                    }
+                };
+                boutonAuteurs.addEventListener('click', afficherAuteurs);
+                //il manque que ce soit que le texte sans html !
 
+                //2. Afficher la liste des lauréats dans la console"            
+                let boutonListeLaureats = document.querySelector('#boutonListeLaureats');
+                function afficherLaureats () {
+                    console.log(document.getElementsByTagName("li"));
+                };
+                boutonListeLaureats.addEventListener('click', afficherLaureats);
+
+
+                //3. Afficher les titres des articles dans la console
+                let boutonArticles = document.querySelector('#boutonArticles');
+                function afficherTitresArticles() {
+                    console.log(document.getElementsByTagName("article h1"));
+                };
+                boutonArticles.addEventListener('click', afficherTitresArticles);
+
+
+                //4. Inverser l'ordre des lauréats dans la page   
+                let boutonInversionLaureats = document.querySelector('li');
+                function inverserOdre() {
+                    console.log('fonction en développement')
+                };
+                boutonInversionLaureats.addEventListener('click', inverserOdre);
+
+
+                //5. Ajouter un nouvel article à la suite des autres 
+                let boutonAjoutArticle = document.querySelector('#boutonAjoutArticle');
+                function ajouterArticle() {
+                    console.log('fonction en développement')
+                };
+                boutonAjoutArticle.addEventListener('click', ajouterArticle);
+
+                //6. Supprimer le dernier article de la page                id="boutonSuppArticle" 
+                let boutonSuppArticle = document.querySelector('#boutonSuppArticle');
+                function supprimerDernierArticle() {
+                    console.log('fonction en développement')
+                };
+                boutonSuppArticle.addEventListener('click', supprimerDernierArticle);
 
             }
             // Je m'abonne à l'event 'load' 
