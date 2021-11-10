@@ -7,17 +7,27 @@
         <title>Exercice sur les sélections</title>
 
         <script type="text/javascript">
-            // test branche esteban
             function auDemarrage() {
             // j'écris la plupart de mon code ici
-            let auteurs = document.getElementsByClassName("auteur");
-            let i = 1
-            for (let auteur in auteurs) {
-                i += 1
-                console.log(document.getElementsByClassName("auteur")[i]);
-            }
 
+            //"1. Afficher les auteurs dans la console"
+            let auteurs = document.getElementsByClassName("auteur");
+            let i = 0
+            for (let auteur in auteurs) {
+                console.log(document.getElementsByClassName("auteur")[i]);
+                i += 1
+
+            }
+            //"2. Afficher la liste des lauréats dans la console"
+
+            //3. Afficher les titres des articles dans la console"
     
+
+            //4. Inverser l'ordre des lauréats dans la page"/>
+            //5. Ajouter un nouvel article à la suite des autres"/>
+            //6. Supprimer le dernier article de la page
+
+
             }
             // Je m'abonne à l'event 'load' 
             window.addEventListener('load', auDemarrage);
