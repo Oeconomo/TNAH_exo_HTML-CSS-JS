@@ -10,20 +10,29 @@
             function auDemarrage() {
                 // j'écris la plupart de mon code ici
                 // ex 1: Afficher la liste des auteurs dans la console
-                console.log(document.querySelectorAll(".auteur"))
+                //document.querySelectorAll(".auteur")
                 // ex 2: Afficher la liste des lauréats dans la console
-                let ol = document.querySelector("ol")
-                ol.children 
+                //let ol = document.querySelector("ol")
+                //ol.children
                 // ex 3: Afficher les titres des articles dans la console
-                document.querySelectorAll("header")
+                //document.querySelectorAll("header")
                 //ex 4: Inverser l'ordre des lauréats dans la page
+                // le code fonctionne dans la console, mais il faut la transformer en fonction
+                let laureats = document.querySelectorAll("#auteur, ol li span ")
+                let liste = []
+                for (laureat of laureats) {
+                    liste.push(laureat.innerText);
+                    console.log(liste); 
+                    let nouvelleliste = liste.reverse(); 
+                    console.log(nouvelleliste)
+                } 
                 //ex 5: Ajouter un nouvel article à la suite des autres
                 //ex 6: Supprimer le denier article de la page
                 //
-
             }
             // Je m'abonne à l'event 'load' 
             window.addEventListener('load', auDemarrage);
+
         </script>
 
         <style>
