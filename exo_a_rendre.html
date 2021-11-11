@@ -16,18 +16,28 @@
                 //ol.children
                 // ex 3: Afficher les titres des articles dans la console
                 //document.querySelectorAll("header")
-                //ex 4: Inverser l'ordre des lauréats dans la page
-                // le code fonctionne dans la console, mais il faut la transformer en fonction
-                let laureats = document.querySelectorAll("#auteur, ol li span ")
-                let liste = []
-                for (laureat of laureats) {
-                    liste.push(laureat.innerText);
-                    console.log(liste); 
+                //ex 4: Inverser l'ordre des lauréats dans la page REUSSI
+                let boutonInversionLaureats = document.querySelector("#boutonInversionLaureats")
+                function inverserOrdre() {
+                    let laureats = document.querySelectorAll("#auteur, ol li span ")
+                    let liste = []
+                    for (laureat of laureats) {
+                    liste.push(laureat.innerText)
+                    }
                     let nouvelleliste = liste.reverse(); 
-                    console.log(nouvelleliste)
-                } 
+                    console.log(nouvelleliste);
+                }
+                boutonInversionLaureats.addEventListener('click', inverserOrdre)
                 //ex 5: Ajouter un nouvel article à la suite des autres
                 //ex 6: Supprimer le denier article de la page
+                let boutonSuppArticle = document.querySelector("#boutonSuppArticle")
+                function supprimerDernierArticle() {
+                    let articles = document.querySelectorAll("#section-secondaire, section article")
+                    let i = articles.length
+                    let dernierarticle = articles[i-1]
+                    dernierarticle.remove()
+                } 
+                boutonSuppArticle.addEventListener('click', supprimerDernierArticle);
             }
             // Je m'abonne à l'event 'load' 
             window.addEventListener('load', auDemarrage);
