@@ -71,12 +71,14 @@
                 };
                 boutonAjoutArticle.addEventListener('click', ajouterArticle);
 
-                //6. Supprimer le dernier article de la page : ESTEBAN / réponse de Lien retravaillée (je n'ai pas réussi)
+                //6. Supprimer le dernier article de la page : ESTEBAN / réponse de Lien retravaillée (j'e n'ai pas réussi)
                 let boutonSuppArticle = document.querySelector('#boutonSuppArticle');
                 function supprimerDernierArticle() {
                     let articles = document.querySelectorAll('.section-secondaire article');   
                     let i = articles.length    //code écrit à partir de celui de Lien
-                    articles[i-1].remove();    //code écit à partir de celui de Lien
+                    if (i >= 1) {
+                        articles[i-1].remove();    //code écit à partir de celui de Lien
+                    }
                 };
                 boutonSuppArticle.addEventListener('click', supprimerDernierArticle);
             }
