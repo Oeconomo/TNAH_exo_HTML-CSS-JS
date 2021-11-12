@@ -7,27 +7,89 @@
         <title>Exercice sur les sélections</title>
 
         <script type="text/javascript">
-            // test branche esteban
+      
             function auDemarrage() {
-            //test sur main
-            // j'écris la plupart de mon code ici
-            let auteurs = document.getElementsByClassName("auteur");
-            let i = 1
-            for (let auteur in auteurs) {
-                i += 1
-                console.log(document.getElementsByClassName("auteur")[i]);
-            }
+                // j'écris la plupart de mon code ici
+                //1. Afficher les auteurs dans la console" : ESTEBAN/ REUSSI
+                let boutonAuteurs = document.querySelector("#boutonAuteurs");
+                function afficherAuteurs() { 
+                    let auteurs = document.getElementsByClassName("auteur");
+                    for (auteur of auteurs) {
+                        console.log(auteur.innerText);
+                    }
+                };
+                boutonAuteurs.addEventListener('click', afficherAuteurs);
 
-    
+                //2. Afficher la liste des lauréats dans la console" : ESTEBAN/ REUSSI    
+                let boutonListeLaureats = document.querySelector('#boutonListeLaureats');
+                function afficherLaureats () {
+                    let laureats = document.querySelectorAll("ol li");
+                    for (laureat of laureats) {
+                        console.log(laureat.innerText);
+                    }
+                };
+                boutonListeLaureats.addEventListener('click', afficherLaureats);
+
+                //3. Afficher les titres des articles dans la console : ESTEBAN/ REUSSI
+                let boutonArticles = document.querySelector('#boutonArticles');
+                function afficherTitresArticles() {
+                    titres = document.querySelectorAll("article header");   //on peut ou pas mettre h1 après header
+                    for (titre of titres) {
+                        console.log(titre.innerText);
+                    }
+                };
+                boutonArticles.addEventListener('click', afficherTitresArticles);
+                
+
+                //4. Inverser l'ordre des lauréats dans la page    ESTEBAN/ REUSSI              
+                let boutonInversionLaureats = document.querySelector('#boutonInversionLaureats');
+                function inverserOdre() {
+                    let ancienneListe = document.querySelectorAll('ol');
+                    let laureats = document.querySelectorAll('ol li span');
+                    let nouvelleListe = []                        //code de Lien Céard
+                    for (laureat of laureats) {                   //code de Lien Céard
+                    nouvelleListe.push(laureat.innerText);       // merci pour cette méthode Lien !
+                    } 
+                    nouvelleListe.reverse()
+                    i = 0
+                    for (laureat of laureats) {
+                        laureat.innerText = nouvelleListe[i]
+                        i +=1
+                    }
+                };
+                boutonInversionLaureats.addEventListener('click', inverserOdre);
+
+                
+                //5. Ajouter un nouvel article à la suite des autres : ESTEBAN / REUSSI
+                let boutonAjoutArticle = document.querySelector('#boutonAjoutArticle');
+                function ajouterArticle() {
+                    element = document.querySelector('.section-secondaire').appendChild(document.createElement('article'));
+                    element.appendChild(document.createElement('h1')).innerText ="Nouvel Article"
+                    element.appendChild(document.createElement('p')).innerText = "Texte du nouvel article."
+                    element.appendChild(document.createElement('footer')).innerText = "Auteur du nouvel article"
+                    document.querySelector('.section-secondaire').appendChild(document.querySelector('.fin'));
+                };
+                boutonAjoutArticle.addEventListener('click', ajouterArticle);
+
+                //6. Supprimer le dernier article de la page : ESTEBAN / réponse de Lien retravaillée (j'e n'ai pas réussi)
+                let boutonSuppArticle = document.querySelector('#boutonSuppArticle');
+                function supprimerDernierArticle() {
+                    let articles = document.querySelectorAll('.section-secondaire article');   
+                    let i = articles.length    //code écrit à partir de celui de Lien
+                    if (i >= 1) {
+                        articles[i-1].remove();    //code écit à partir de celui de Lien
+                    }
+                };
+                boutonSuppArticle.addEventListener('click', supprimerDernierArticle);
             }
             // Je m'abonne à l'event 'load' 
             window.addEventListener('load', auDemarrage);
 
 
-
+            
         </script>
 
-        <style>
+        <style>     /*Mise en forme d'ESTEBAN*/
             .layout {
                 display:flex;
                 flex-direction:row;
@@ -136,7 +198,7 @@
                     </p>
                     <footer>Signé <span class="auteur">Elsa</span></footer>
                 </article>
-                <footer>Dirigé par <span class="auteur">Mathilde</span></footer>
+                <footer class="fin">Dirigé par <span class="auteur">Mathilde</span></footer>
             </section>
 
             <section class="buttons">
