@@ -10,7 +10,7 @@
       
             function auDemarrage() {
                 // j'écris la plupart de mon code ici
-                //1. Afficher les auteurs dans la console" : ESTEBAN/ REUSSI
+                //1. Afficher les auteurs dans la console" : REUSSI
                 let boutonAuteurs = document.querySelector("#boutonAuteurs");
                 function afficherAuteurs() { 
                     let auteurs = document.getElementsByClassName("auteur");
@@ -20,7 +20,7 @@
                 };
                 boutonAuteurs.addEventListener('click', afficherAuteurs);
 
-                //2. Afficher la liste des lauréats dans la console" : ESTEBAN/ REUSSI    
+                //2. Afficher la liste des lauréats dans la console" : REUSSI
                 let boutonListeLaureats = document.querySelector('#boutonListeLaureats');
                 function afficherLaureats () {
                     let laureats = document.querySelectorAll("ol li");
@@ -30,7 +30,7 @@
                 };
                 boutonListeLaureats.addEventListener('click', afficherLaureats);
 
-                //3. Afficher les titres des articles dans la console : ESTEBAN/ REUSSI
+                //3. Afficher les titres des articles dans la console : REUSSI
                 let boutonArticles = document.querySelector('#boutonArticles');
                 function afficherTitresArticles() {
                     titres = document.querySelectorAll("article header");   //on peut ou pas mettre h1 après header
@@ -41,14 +41,14 @@
                 boutonArticles.addEventListener('click', afficherTitresArticles);
                 
 
-                //4. Inverser l'ordre des lauréats dans la page    ESTEBAN/ REUSSI              
+                //4. Inverser l'ordre des lauréats dans la page : REUSSI              
                 let boutonInversionLaureats = document.querySelector('#boutonInversionLaureats');
                 function inverserOdre() {
                     let ancienneListe = document.querySelectorAll('ol');
                     let laureats = document.querySelectorAll('ol li span');
-                    let nouvelleListe = []                        //code de Lien Céard
-                    for (laureat of laureats) {                   //code de Lien Céard
-                    nouvelleListe.push(laureat.innerText);       // merci pour cette méthode Lien !
+                    let nouvelleListe = []         
+                    for (laureat of laureats) {         
+                    nouvelleListe.push(laureat.innerText);       
                     } 
                     nouvelleListe.reverse()
                     i = 0
@@ -60,7 +60,7 @@
                 boutonInversionLaureats.addEventListener('click', inverserOdre);
 
                 
-                //5. Ajouter un nouvel article à la suite des autres : ESTEBAN / REUSSI
+                //5. Ajouter un nouvel article à la suite des autres : REUSSI
                 let boutonAjoutArticle = document.querySelector('#boutonAjoutArticle');
                 function ajouterArticle() {
                     element = document.querySelector('.section-secondaire').appendChild(document.createElement('article'));
@@ -71,13 +71,13 @@
                 };
                 boutonAjoutArticle.addEventListener('click', ajouterArticle);
 
-                //6. Supprimer le dernier article de la page : ESTEBAN / réponse de Lien retravaillée (j'e n'ai pas réussi)
+                //6. Supprimer le dernier article de la page : REUSSI
                 let boutonSuppArticle = document.querySelector('#boutonSuppArticle');
                 function supprimerDernierArticle() {
                     let articles = document.querySelectorAll('.section-secondaire article');   
-                    let i = articles.length    //code écrit à partir de celui de Lien
+                    let i = articles.length   
                     if (i >= 1) {
-                        articles[i-1].remove();    //code écit à partir de celui de Lien
+                        articles[i-1].remove();   
                     }
                 };
                 boutonSuppArticle.addEventListener('click', supprimerDernierArticle);
@@ -89,7 +89,7 @@
             
         </script>
 
-        <style>     /*Mise en forme d'ESTEBAN*/
+        <style>   
             .layout {
                 display:flex;
                 flex-direction:row;
