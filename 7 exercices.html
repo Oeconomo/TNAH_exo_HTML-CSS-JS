@@ -19,7 +19,6 @@
                     for (auteur of auteurs) {
                         console.log(auteur.innerText);
                     }
-
                 };
                 boutonAuteurs.addEventListener('click', afficherAuteurs);
 
@@ -33,7 +32,7 @@
                 };
                 boutonListeLaureats.addEventListener('click', afficherLaureats);
 
-                //3. Afficher les titres des articles dans la console
+                //3. Afficher les titres des articles dans la console : REUSSI
                 let boutonArticles = document.querySelector('#boutonArticles');
                 function afficherTitresArticles() {
                     titres = document.querySelectorAll("article header");   //on peut ou pas mettre h1 après header
@@ -42,29 +41,43 @@
                     }
                 };
                 boutonArticles.addEventListener('click', afficherTitresArticles);
+                
+               // document.querySelector('ul div').appendChild(document.querySelector('p:nth-child(3)'));   
 
 
-                //4. Inverser l'ordre des lauréats dans la page   
-                let boutonInversionLaureats = document.querySelector('li');
+                //4. Inverser l'ordre des lauréats dans la page    id="boutonInversionLaureats" 
+                let boutonInversionLaureats = document.querySelector('#boutonInversionLaureats');
                 function inverserOdre() {
-                    console.log('fonction en développement')
+                    let liste = document.querySelectorAll('ol li');
+                   // liste.reverse();
+                    //essayer avec :nth-child
+
                 };
                 boutonInversionLaureats.addEventListener('click', inverserOdre);
 
-
-                //5. Ajouter un nouvel article à la suite des autres 
+                
+                //5. Ajouter un nouvel article à la suite des autres : REUSSI
                 let boutonAjoutArticle = document.querySelector('#boutonAjoutArticle');
                 function ajouterArticle() {
-                    console.log('fonction en développement')
+                    element = document.querySelector('.section-secondaire').appendChild(document.createElement('article'));
+                    element.appendChild(document.createElement('h1')).innerText ="Nouvel Article"
+                    element.appendChild(document.createElement('p')).innerText = "Texte du nouvel article."
+                    element.appendChild(document.createElement('footer')).innerText = "Auteur du nouvel article"
+                    document.querySelector('.section-secondaire').appendChild(document.querySelector('.fin'));
+
                 };
                 boutonAjoutArticle.addEventListener('click', ajouterArticle);
 
-                //6. Supprimer le dernier article de la page                id="boutonSuppArticle" 
+                //6. Supprimer le dernier article de la page : fonctionne mais décevant. Il faut cliquer deux fois et on arrive pas pas pas à exclure le dernier footer 
                 let boutonSuppArticle = document.querySelector('#boutonSuppArticle');
                 function supprimerDernierArticle() {
-                    console.log('fonction en développement')
+                    let section = document.querySelector('.section-secondaire');
+                    section.removeChild(section.lastChild);
+
                 };
                 boutonSuppArticle.addEventListener('click', supprimerDernierArticle);
+
+
 
             }
             // Je m'abonne à l'event 'load' 
@@ -183,7 +196,7 @@
                     </p>
                     <footer>Signé <span class="auteur">Elsa</span></footer>
                 </article>
-                <footer>Dirigé par <span class="auteur">Mathilde</span></footer>
+                <footer class="fin">Dirigé par <span class="auteur">Mathilde</span></footer>
             </section>
 
             <section class="buttons">
