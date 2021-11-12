@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercice sur les sélections</title>
+
+        <script type="text/javascript">
+            function auDemarrage() {
+                // j'écris la plupart de mon code ici
+                // ex 1: Afficher la liste des auteurs dans la console
+                //document.querySelectorAll(".auteur")
+                // ex 2: Afficher la liste des lauréats dans la console
+                //let ol = document.querySelector("ol")
+                //ol.children
+                // ex 3: Afficher les titres des articles dans la console
+                //document.querySelectorAll("header")
+                //ex 4: Inverser l'ordre des lauréats dans la page REUSSI LIEN
+                // 
+                let boutonInversionLaureats = document.querySelector("#boutonInversionLaureats")
+                //Je souhaite sélectionner le bouton nommé boutonInversionLaureats. Je stocke le résultat dans une variable.
+                // Je définis une fonction.
+                function inverserOrdre() {
+                // Je sélectionne les lauréats. Je stocke mon résultat dans une variable.
+                    let laureats = document.querySelectorAll("#auteur, ol li span ")
+                // Je définis un tableau vide.
+                    let liste = []
+                // Je crée une boucle:
+                //pour chaque laureat dans mon tableau "laureats",
+                    for (laureat of laureats) {
+                // ajouter, dans le tableau "liste", le nom du laureat
+                    liste.push(laureat.innerText);
+                    }
+                //Donner l'ordre inverse du tableau "liste" en utilisant la méthode ".reverse()". Je stocke le résultat dans une variable.
+                    let nouvelleliste = liste.reverse(); 
+                //Afficher la valeur de la variable "nouvelleliste"
+                    console.log(nouvelleliste);
+                }
+                // Je m'abonne à l'event 'click'
+                boutonInversionLaureats.addEventListener('click', inverserOrdre)
+                //ex 5: Ajouter un nouvel article à la suite des autres
+                //ex 6: Supprimer le dernier article de la page REUSSI Lien
+                // Je souhaite sélectionner le bouton nommé boutonSuppArticle. Je stocke le résultat dans une variable.
+                let boutonSuppArticle = document.querySelector("#boutonSuppArticle")
+                //Je définis une fonction. 
+                function supprimerDernierArticle() {
+                    // Je sélectionne l'ensemble des articles. Je stocke le résultat dans une variable.
+                    let articles = document.querySelectorAll("#section-secondaire, section article")
+                    // Je définie une variable "i" et lui assigne une valeur qui est la longueur de mon tableau "articles"
+                    let i = articles.length
+                    // Je cherche l'élément de mon tableau "articles" dont la position est le résultat de la soustraction "i-1". Je stocke mon résultat précédemment trouvé dans une variable.
+                    let dernierarticle = articles[i-1]
+                    // Je supprime le dernier article en utilisant la méthode ".remove()".
+                    dernierarticle.remove()
+                } 
+                // Je m'abonne à l'event "click".
+                boutonSuppArticle.addEventListener('click', supprimerDernierArticle);
+            }
+            // Je m'abonne à l'event 'load' 
+            window.addEventListener('load', auDemarrage);
+
+        </script>
+
+        <style>
+            .layout {
+                display: flex;
+            }
+            .orange {
+                color: sandybrown;
+            }
+            .important {
+                border-style: dotted;
+                border-color: rgb(40, 187, 231);
+                margin: 6px;
+            }
+            .fond_bleu {
+                margin-top: -19px;
+                background-color: #a9d7e2;
+            }
+            .bords_mauve {
+                border-style: dotted;
+                border-color: gainsboro;
+                margin: 6px;
+            }
+            .fond_mauve {
+                margin-top: -19px;
+                background: gainsboro
+            }
+            .navigation {
+                background: gainsboro;
+                padding: 10px;
+            }
+         
+            .main {
+                background-color: #e6fcff;
+                padding: 10px;
+            }
+            
+            section.buttons {
+                margin-top: 50px;
+                display: flex;
+                flex-direction: column;
+            }
+            section.buttons section {
+                margin-bottom: 10px;
+            }
+            .buttons2 {
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+
+
+    <body>
+        <h1>Exercice sur les sélections en javascript</h1>
+        <div class="layout">
+        <section class="navigation">
+           <h1>Navigation</h1>
+           <nav>
+               <ul>
+               <li><a href="#joseph" class="auteur">Joseph</a></li>
+               <li><a href="#marion" class="auteur">Marion</a></li>
+               <li><a href="#rene" class="auteur">René</a></li>
+               <li><a href="#lylia" class="auteur">Lylia</a></li>
+                </ul>
+           </nav>
+        </section>
+        <div class="main">
+            <section class="section-principale">
+                <article class="important">
+                    <header class="fond_bleu"><h1>Ceci est un article et un préambule important</h1></header>
+                    <p class="content">
+                        Voici du contenu à propos de <span class="auteur">Roberta</span>
+                    </p>
+                    <footer class="orange">Signé <span class="auteur">Stéphane</span></footer>
+                </article>
+            </section>
+
+            <section class="section-secondaire">
+                <article class="important">
+                    <header class="fond_bleu"><h1>Ceci est un article important</h1></header>
+                    <p class="content">
+                        Bonjour, je m'appelle <span class="auteur">Roberta</span>
+                    </p>
+                    <footer class="orange">Signé <span class="auteur">Amel</span></footer>
+                </article>
+                <article class="bords_mauve">
+                    <header class="fond_mauve"><h1>Ceci est un article</h1></header>
+                    <p class="content">
+                        Liste des lauréats :
+                        <ol>
+                            <li><span class="auteur">Lauryne 1</span></li>
+                            <li><span class="auteur">Philibert 2</span></li>
+                            <li><span class="auteur">Émilie 3</span></li>
+                            <li><span class="auteur">Joacquim 4</span></li>
+                        </ol>
+                    </p>
+                    <footer class="orange">Signé <span class="auteur">Elsa</span></footer>
+                </article>
+                <footer>Dirigé par <span class="auteur">Mathilde</span></footer>
+            </section>
+
+            <section class="buttons">
+                <section>
+                    <h1>Mise en page</h1>
+                    <span>0. Reproduire la mise en page</span>
+                </section>
+                <section>
+                    <h1>Sélection d'éléments du DOM</h1>
+                    <div class="buttons2">
+                        <input id="boutonAuteurs" type="button" value="1. Afficher les auteurs dans la console"/>
+                        <input id="boutonListeLaureats" type="button" value="2. Afficher la liste des lauréats dans la console"/>
+                        <input id="boutonArticles" type="button" value="3. Afficher les titres des articles dans la console"/>
+                    </div>
+                </section>
+                <section>
+                    <h1>Manipulation du DOM</h1>
+                    <div class="buttons2">
+                        <input id="boutonInversionLaureats" type="button" value="4. Inverser l'ordre des lauréats dans la page"/>
+                        <input id="boutonAjoutArticle" type="button" value="5. Ajouter un nouvel article à la suite des autres"/>
+                        <input id="boutonSuppArticle" type="button" value="6. Supprimer le dernier article de la page"/>
+                    </div>
+                </section>
+            </section>
+        </div>
+        
+    </div>
+
+    </body>
+
+</html>
