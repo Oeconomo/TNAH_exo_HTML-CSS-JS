@@ -17,26 +17,44 @@
                 // ex 3: Afficher les titres des articles dans la console
                 //document.querySelectorAll("header")
                 //ex 4: Inverser l'ordre des lauréats dans la page REUSSI
+                // 
                 let boutonInversionLaureats = document.querySelector("#boutonInversionLaureats")
+                //Je souhaite sélectionner le bouton nommé boutonInversionLaureats. Je stocke le résultat dans une variable.
+                // Je définis une fonction.
                 function inverserOrdre() {
+                // Je sélectionne les lauréats. Je stocke mon résultat dans une variable.
                     let laureats = document.querySelectorAll("#auteur, ol li span ")
+                // Je définis un tableau vide.
                     let liste = []
+                // Je crée une boucle:
+                //pour chaque laureat dans mon tableau "laureats",
                     for (laureat of laureats) {
-                    liste.push(laureat.innerText)
+                // ajouter, dans le tableau "liste", le nom du laureat
+                    liste.push(laureat.innerText);
                     }
+                //Donner l'ordre inverse du tableau "liste" en utilisant la méthode ".reverse()". Je stocke le résultat dans une variable.
                     let nouvelleliste = liste.reverse(); 
+                //Afficher la valeur de la variable "nouvelleliste"
                     console.log(nouvelleliste);
                 }
+                // Je m'abonne à l'event 'click'
                 boutonInversionLaureats.addEventListener('click', inverserOrdre)
                 //ex 5: Ajouter un nouvel article à la suite des autres
-                //ex 6: Supprimer le denier article de la page
+                //ex 6: Supprimer le dernier article de la page
+                // Je souhaite sélectionner le bouton nommé boutonSuppArticle. Je stocke le résultat dans une variable.
                 let boutonSuppArticle = document.querySelector("#boutonSuppArticle")
+                //Je définis une fonction. 
                 function supprimerDernierArticle() {
+                    // Je sélectionne l'ensemble des articles. Je stocke le résultat dans une variable.
                     let articles = document.querySelectorAll("#section-secondaire, section article")
+                    // Je définie une variable "i" et lui assigne une valeur qui est la longueur de mon tableau "articles"
                     let i = articles.length
+                    // Je cherche l'élément de mon tableau "articles" dont la position est le résultat de la soustraction "i-1". Je stocke mon résultat précédemment trouvé dans une variable.
                     let dernierarticle = articles[i-1]
+                    // Je supprime le dernier article en utilisant la méthode ".remove()".
                     dernierarticle.remove()
                 } 
+                // Je m'abonne à l'event "click".
                 boutonSuppArticle.addEventListener('click', supprimerDernierArticle);
             }
             // Je m'abonne à l'event 'load' 
